@@ -1,3 +1,5 @@
+package session1;
+
 import java.util.Scanner;
 
 public class Task1 {
@@ -7,7 +9,7 @@ public class Task1 {
     public static void main(String[] args){
         int[] data;
         try{
-            System.out.print("Enter the size of the array: ");
+            System.out.println("Enter the size of the array");
             int size = input.nextInt();
             if (size < 1){
                 throw new IllegalArgumentException("Error: Please enter a number greater than 1");
@@ -16,11 +18,11 @@ public class Task1 {
             data = new int[size];
 
             for(int i=0; i<data.length; i++){
-                data[i] = (int)(Math.random()*100+1);
+                data[i] = (int) (Math.random()*100+1);
             }
 
             for(int i=0; i<data.length; i++){
-                System.out.printf("%s %d,", i==0 ? "" : ",", data[i]);
+                System.out.printf("%s %d", i==0 ? "" : ",", data[i]);
             }
 
             System.out.println();
