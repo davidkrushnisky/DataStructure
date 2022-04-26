@@ -69,7 +69,7 @@ public class FiboCache {
 
     public static void main(String[] args) {
         fiboCache();
-        System.out.println("The Fibonacci number requested is: " + getNthFib(15));
+        System.out.println("The Fibonacci number requested is: " + getNthFib(0));
         System.out.println("The count of fibs computed is: " + getCountOfFibsComputed());
         System.out.println("The count of fibs cached used is: " + getCountOfFibsCachedUsed());
         FiboCache cache = new FiboCache();
