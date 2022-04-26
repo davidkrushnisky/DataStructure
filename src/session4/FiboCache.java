@@ -35,29 +35,45 @@ public class FiboCache {
         return fibsCachedCount;
     }
 
-    static public List<Long> getFibsCached() {
-        return fibsCached;
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+        for(int i=0; i< fibsCached.size() ; i++){
+            builder.append(i==0 ? "": ", ");
+            builder.append(fibsCached.get(i));
+        }
+        builder.append("]");
+        return builder.toString();
     }
 
-    //Create Unit test to prove the method
+    //Unit tests to prove the method
     @Test
     public void testGet7thFib(){
-        FiboCache.fiboCache();
+        fiboCache();
         Assert.assertEquals(13, getNthFib(7));
     }
 
     @Test
     public void testGet19thFib(){
-        FiboCache.fiboCache();
+        fiboCache();
         Assert.assertEquals(4181, getNthFib(19));
     }
 
+    @Test
+    public void testGetFibsCachedFor7thFib(){
+        fiboCache();
+        getNthFib(7);
+        Assert.assertEquals("[0, 1, 1, 2, 3, 5, 8, 13]", toString());
+    }
+
     public static void main(String[] args) {
-        FiboCache.fiboCache();
-        System.out.println("The Fibonacci number is: " + getNthFib(15));
+        fiboCache();
+        System.out.println("The Fibonacci number requested is: " + getNthFib(15));
         System.out.println("The count of fibs computed is: " + getCountOfFibsComputed());
-        System.out.println("The count of fibs cached used is: " + FiboCache.getCountOfFibsCachedUsed());
-        System.out.println("The fibs cached are: " + FiboCache.getFibsCached());
+        System.out.println("The count of fibs cached used is: " + getCountOfFibsCachedUsed());
+        FiboCache cache = new FiboCache();
+        System.out.println("The Fibs cached are: " + cache);
     }
 }
 
